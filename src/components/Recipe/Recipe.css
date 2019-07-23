@@ -1,0 +1,79 @@
+
+/* other style*/
+.recipe {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 1rem;
+}
+
+.recipe-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+}
+
+.recipe-image {
+  width: 60%
+}
+
+h1 {
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Helvetica;
+
+}
+
+img {
+  width: 100%;
+}
+
+.content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1rem;
+  line-height: 1.5rem;
+  width: 90%;
+}
+
+h2 {
+  color: black;
+  font-weight: bold;
+}
+
+ol {
+  list-style: decimal;
+}
+
+.backButton {
+  background-color: #ff8080;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin: 1rem 0 2rem 0;
+  border: none;
+}
+
+.heartHollow {
+  height: 1.5rem;
+  margin: 1rem;
+}
+
+@media only screen and (min-width: 48rem) {
+  .content-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    line-height: 1.5rem;
+  }
+}

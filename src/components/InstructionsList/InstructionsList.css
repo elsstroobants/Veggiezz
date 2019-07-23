@@ -1,0 +1,33 @@
+.instructions-box {
+  font-size: .8rem;
+  color: grey;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+
+.title {
+  margin: 0 0 1rem 0;
+}
+
+ol {
+  text-align: left;
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+@media only screen and (min-width: 48rem) {
+  .instructions-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-left: 1px dashed black;
+    padding: 0 0 0 0.5rem;
+
+  }
+}

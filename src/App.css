@@ -1,33 +1,69 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-home {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  margin: 0 auto;
+  background-image: url('./images/cucumber.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: Helvetica ;
+}
+
+.App-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  background-image: url('./images/cucumber.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Helvetica ;
+  min-height: 100%;
+}
+
+.veggiezz {
+  color: #ff8080;
+  font-size: 6rem;
+  font-weight: bold;
+  font-family: 'Monday Bay',Helvetica ;
+}
+
+.backToStart {
+  background-color: white;
+  border-radius: 15px;
+  padding: 1em;
+  border: none;
+  background-color: #ff8080;
+  font-weight: bold;
   color: white;
+
 }
 
-.App-link {
-  color: #61dafb;
+@media only screen and (min-width: 48rem) {
+  .veggiezz {
+    font-size: 12rem;
+    padding: 12rem 0 2rem 0;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media only screen and (min-width: 65rem) {
+  .veggiezz {
+    font-size: 13rem;
+    padding: 20rem 0 6rem 0;
+    }
+}
+
+
+@media only screen and (min-width: 88rem) {
+  .veggiezz {
+    font-size: 20rem;
+    padding: 30rem 0 10rem 0;
+    }
 }

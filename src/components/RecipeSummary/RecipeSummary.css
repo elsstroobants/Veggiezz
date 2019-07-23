@@ -1,0 +1,18 @@
+.recipeSummary {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 10rem;
+}
+
+
+.recipeSummaryIcon {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.recipeSummaryListItem {
+  width: 100%;
+}

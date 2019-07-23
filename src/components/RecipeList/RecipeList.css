@@ -1,0 +1,22 @@
+
+.recipeList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: black;
+  font-family: Helvetica;
+  padding: 2rem;
+  margin: 5rem 0 3rem 0;
+  line-height: 2rem;
+  width: 70%;
+  max-width: 20rem;
+}
+
+.listMessage {
+  color: grey;
+  font-size: .8rem;
+  line-height: 1rem;
+  padding: 0 0 1rem 0rem;
+}
