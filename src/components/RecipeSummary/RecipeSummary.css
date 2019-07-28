@@ -14,5 +14,6 @@
 }
 
 .recipeSummaryListItem {
+  display: flex;
   width: 100%;
 }

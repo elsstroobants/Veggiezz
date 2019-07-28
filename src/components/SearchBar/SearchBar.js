@@ -13,9 +13,10 @@ class SearchBar extends React.Component {
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
-  search() {
+  search(event) {
     //When the search button is clicked, the search function is called, which calls the search function in the App component via the passed in prop and passes it the updated searchTerm.
     this.props.handleSearch(this.state.searchTerm);
+    event.preventDefault();//this stops the event propagating to the top.
   }
 
   handleTermChange(event) {
@@ -47,11 +48,13 @@ class SearchBar extends React.Component {
     return (
       <div className={classNameSearchBar}>
         <div className={classNameSearchBar}>
-          <input className="searchField" type="text" placeholder="Enter your favourite veg"
-           value={this.state.searchTerm} onChange={this.handleTermChange}
-           //this next line is essential for the componentDidMount function. It is used to put the focus on the searchField straight after rendering.
-           ref={(input) => { this.searchTermInput = input; }} />
-          <input className={classNameSearchButton} type="button" value="find recipes" onClick={this.search} />
+          <form onSubmit={this.search}>
+            <input className="searchField" type="text" placeholder="Enter your favourite veg"
+             value={this.state.searchTerm} onChange={this.handleTermChange}
+             //this next line is essential for the componentDidMount function. It is used to put the focus on the searchField straight after rendering.
+             ref={(input) => { this.searchTermInput = input; }} />
+            <input className={classNameSearchButton} type="submit" value="find recipes" />
+          </form>
           <img className={classNameSearchIcon} src={searchIcon} onClick={this.search} alt=''/>
           <img className={classNameHeartSolid} src={heartSolid} onClick={this.handleHeartClick} alt=''/>
         </div>

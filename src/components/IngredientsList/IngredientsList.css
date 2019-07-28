@@ -14,8 +14,11 @@
   align-self: center;
 }
 
-ul {
-  text-align: left;
+.ingredients-box ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 @media only screen and (min-width: 48rem) {
@@ -29,7 +32,12 @@ ul {
 
   }
 
-  ul {
-    text-align: right;
+  .ingredients-box ul {
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .title {
+    align-self: auto;
   }
 }

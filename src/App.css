@@ -1,4 +1,7 @@
-
+@font-face {
+    font-family: 'Monday Bay';
+    src: url('./fonts/Monday Bay.ttf') format('truetype');
+}
 
 .App-home {
   display: flex;
@@ -10,7 +13,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100%;
+  min-height: 100%;
   font-family: Helvetica ;
 }
 
@@ -30,40 +33,14 @@
 
 .veggiezz {
   color: #ff8080;
-  font-size: 6rem;
-  font-weight: bold;
+  font-size: 8rem;
+  text-shadow:0 0 10px black;
+  font-weight: normal;
   font-family: 'Monday Bay',Helvetica ;
-}
-
-.backToStart {
-  background-color: white;
-  border-radius: 15px;
-  padding: 1em;
-  border: none;
-  background-color: #ff8080;
-  font-weight: bold;
-  color: white;
-
 }
 
 @media only screen and (min-width: 48rem) {
   .veggiezz {
     font-size: 12rem;
-    padding: 12rem 0 2rem 0;
-    }
-}
-
-@media only screen and (min-width: 65rem) {
-  .veggiezz {
-    font-size: 13rem;
-    padding: 20rem 0 6rem 0;
-    }
-}
-
-
-@media only screen and (min-width: 88rem) {
-  .veggiezz {
-    font-size: 20rem;
-    padding: 30rem 0 10rem 0;
-    }
+  }
 }
