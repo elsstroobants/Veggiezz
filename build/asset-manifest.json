@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.c54310fa.chunk.css",
-    "main.js": "/static/js/main.a70a0ee0.chunk.js",
-    "main.js.map": "/static/js/main.a70a0ee0.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.c696e79f.chunk.js": "/static/js/2.c696e79f.chunk.js",
-    "static/js/2.c696e79f.chunk.js.map": "/static/js/2.c696e79f.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.4e8ad5ae6cca3c4aff22886ff5e80f35.js": "/precache-manifest.4e8ad5ae6cca3c4aff22886ff5e80f35.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.c54310fa.chunk.css.map": "/static/css/main.c54310fa.chunk.css.map",
-    "static/media/App.css": "/static/media/avocados.91435b96.jpg",
-    "static/media/cross_pink.svg": "/static/media/cross_pink.43f9d242.svg",
-    "static/media/heart_hollow_pink.svg": "/static/media/heart_hollow_pink.16e5df6f.svg",
-    "static/media/heart_solid_white.svg": "/static/media/heart_solid_white.0e04a97c.svg",
-    "static/media/lasagna.jpg": "/static/media/lasagna.4d89579e.jpg",
-    "static/media/searchicon.svg": "/static/media/searchicon.c07793ab.svg"
+    "main.css": "/veggiezz/build/static/css/main.72b42ffe.chunk.css",
+    "main.js": "/veggiezz/build/static/js/main.77b74f14.chunk.js",
+    "main.js.map": "/veggiezz/build/static/js/main.77b74f14.chunk.js.map",
+    "runtime~main.js": "/veggiezz/build/static/js/runtime~main.6d491fba.js",
+    "runtime~main.js.map": "/veggiezz/build/static/js/runtime~main.6d491fba.js.map",
+    "static/js/2.c696e79f.chunk.js": "/veggiezz/build/static/js/2.c696e79f.chunk.js",
+    "static/js/2.c696e79f.chunk.js.map": "/veggiezz/build/static/js/2.c696e79f.chunk.js.map",
+    "index.html": "/veggiezz/build/index.html",
+    "precache-manifest.8a8383d4fde1c995dcf4c455843920d2.js": "/veggiezz/build/precache-manifest.8a8383d4fde1c995dcf4c455843920d2.js",
+    "service-worker.js": "/veggiezz/build/service-worker.js",
+    "static/css/main.72b42ffe.chunk.css.map": "/veggiezz/build/static/css/main.72b42ffe.chunk.css.map",
+    "static/media/App.css": "/veggiezz/build/static/media/avocados.91435b96.jpg",
+    "static/media/cross_pink.svg": "/veggiezz/build/static/media/cross_pink.43f9d242.svg",
+    "static/media/heart_hollow_pink.svg": "/veggiezz/build/static/media/heart_hollow_pink.16e5df6f.svg",
+    "static/media/heart_solid_white.svg": "/veggiezz/build/static/media/heart_solid_white.0e04a97c.svg",
+    "static/media/lasagna.jpg": "/veggiezz/build/static/media/lasagna.4d89579e.jpg",
+    "static/media/searchicon.svg": "/veggiezz/build/static/media/searchicon.c07793ab.svg"
   }
 }
