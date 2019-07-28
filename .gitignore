@@ -8,8 +8,8 @@
 # testing
 /coverage
 
-# production
-/build
+# Normally, build should never be committed to Git. Make an exception in this case so that the app can be demo'd
+# /build
 
 # misc
 .DS_Store
