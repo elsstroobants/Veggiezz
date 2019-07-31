@@ -16,7 +16,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  background-color: #ff8080;
+  background-color: #FADB10;/*ff8080*/
 }
 
 .searchField {
@@ -27,7 +27,7 @@
 }
 
 .searchButtonHomeScreen {
-  background-color: #ff8080;
+  background-color: black/*#964402/*ff8080*/;
   color: white;
   font-weight: bold;
   font-size: 0.8rem;
@@ -68,5 +68,7 @@
   font-family: 'Monday Bay', Helvetica;
   color: white;
   font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 0 0 1px green;
   padding: 0 1rem 0 0;
 }

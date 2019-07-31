@@ -54,7 +54,7 @@ ol {
 }
 
 .backButton {
-  background-color: #ff8080;
+  background-color: #FADB10; /*#ff8080*/
   color: white;
   font-weight: bold;
   font-size: 0.8rem;
@@ -63,7 +63,7 @@ ol {
   border: none;
 }
 
-.heartHollow {
+.heart {
   height: 1.5rem;
   margin: 1rem;
 }

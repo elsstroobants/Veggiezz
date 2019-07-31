@@ -7,28 +7,7 @@ import lasagna from './images/lasagna.jpg';
 import heartHollow from './images/heart_hollow_pink.svg';
 import cross from './images/cross_pink.svg';
 
-
-//hard coded recipe. This will be replaced with the results from an API call, which will be a jason object.
-const recipe = {
-  name: 'lasagna',
-  picSrc: lasagna,
-  ingredients: [
-    {item: 'pasta', quantity: 500, unit: 'grams'},
-    {item: 'onions', quantity: 2, unit: 'piece'}
-  ],
-  instructions: [
-    'oven on to 180C',
-    'sauce',
-    'assemble',
-    'cook'
-  ]
-}
-// I need a list of hard coded recipes in order to have something to work with when using search results. This will be adjusted when working with an API request.
-const listOfRecipes = [recipe, recipe, recipe];
-// I need an updated list of recipes to see if a new search will result in an update of the state of the search results.
-const newListOfRecipes = [recipe, recipe];
-// I need an updated list of recipes to see if a new search initiated from a screen showing the recipe will result in an update of the state of the search results.
-const anotherListOfRecipes = [recipe];
+// https://api.edamam.com/search?q=onion&app_id=65b44741&app_key=dd81ed343eac181f1a75a52d6aa2cdfc
 
 
 //This is the main app, which is the starting point for all information. It holds several components and children of components. The initial state has two items in it: the searchResults are set to listOfRecipes (Doug: why not null?) and the selectedRecipe is set to null, because we don't want to show a recipe until one has been selected.
@@ -36,7 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: null,
+      searchResults: [],
       selectedRecipe: null,
       searchTerm: null,
       favList: [],
@@ -47,21 +26,64 @@ class App extends React.Component {
     this.displayFavList = this.displayFavList.bind(this);
     this.addToFavList = this.addToFavList.bind(this);
     this.removeFromFavList = this.removeFromFavList.bind(this);
+    this.isFavourite = this.isFavourite.bind(this);
+    this.toggleHeart = this.toggleHeart.bind(this);
   }
 
   // This function gets called when the user clicks the "Search" button.
   // It is given the term that is to be searched for.
   search(searchTerm) {
-    if (searchTerm === 'onions') {
-      this.setState( {searchTerm: searchTerm, searchResults: listOfRecipes, displayType: "search"} );
-      this.selectRecipe(null);
-    } else if (searchTerm === 'tomatoes') {
-      this.setState( {searchTerm: searchTerm, searchResults: newListOfRecipes, displayType: "search"} );
-      this.selectRecipe(null);
-    } else if (searchTerm !== 'onions' && searchTerm !== 'tomatoes') {
-      this.setState( {searchTerm: searchTerm, searchResults: anotherListOfRecipes, displayType: "search"} );
-      this.selectRecipe(null);
+    this.setState({
+      searchTerm: searchTerm,
+      searchResults: null,
+      displayType: "search",
+      selectedRecipe: null
+    })
+
+    // Build the URL for the search
+    let apiSearchUrl = 'https://api.edamam.com/search'
+        + '?q=' + searchTerm
+        + '&health=vegan'
+        + '&to=20'
+        + '&app_id=65b44741&app_key=dd81ed343eac181f1a75a52d6aa2cdfc';
+
+    // Call the URL to run the search
+    fetch(apiSearchUrl)
+    .then(response => {
+      // Handle the response from the search
+      if (!response.ok) {
+        throw new Error('HTTP error, status = ' + response.status);
+      } else {
+        return response.json();
+      }
+    })
+    .then(recipeJson => {
+      // Handle the JSON content from the search result
+      // Convert the response from the API to the expected internal format.
+      let searchResultsFromAPI = recipeJson.hits.map(hit => {
+        let recipe = hit.recipe;
+        return {
+          id: recipe.uri,
+          name: recipe.label,
+          picSrc: recipe.image,
+          ingredients: recipe.ingredientLines,
+          url: recipe.url,   // link to original recipe description
+          favourite: this.isFavourite(recipe.uri)
+        }
+      })
+      console.log("Search result = ", recipeJson, searchResultsFromAPI)
+      this.setState({searchResults: searchResultsFromAPI})
+    });
+  }
+
+  isFavourite(id) {
+    for (let i in this.state.favList) {
+      let fav = this.state.favList[i];
+      if (id === fav.id) {
+        return true;
+      }
     }
+    return false;
   }
 
   //This function gets called when the user selects a recipe from the RecipeList by clicking a particular RecipeSummary. It is given the newRecipe as a parameter. Selecting a new recipe changes the state in the App component and sets selectedRecipe to the new selected recipe.
@@ -75,15 +97,26 @@ class App extends React.Component {
 
   addToFavList(recipeToAdd) {
     this.state.favList.push(recipeToAdd);
+    recipeToAdd.favourite = true;
+    this.setState( {} );
     //icon needs to show heartSolid instead of heartHollow
   }
 
   removeFromFavList(recipeToRemove) {
-    this.state.favList.pop(recipeToRemove);
-    //the favlist should needs to re-rendered without the deleted recipe. This can be done by changing the state, without actually changing it.
-    this.setState({});
+    const newFavList = this.state.favList.filter(fav => fav.id !== recipeToRemove.id);
+    recipeToRemove.favourite = false;
+    this.setState( {favList: newFavList} );
   }
 
+  //if hollowHeart: add to favouriteslist
+  //if solidHeart: remove from favouriteslist
+  toggleHeart(recipe) {
+    if (recipe.favourite) {
+      this.removeFromFavList(recipe);
+    } else {
+      this.addToFavList(recipe);
+    }
+  }
 
   // If there is no recipe selected, the state of selectedRecipe is null. In this case the RecipeList will be rendered, not the recipe.
   // Searchbar is passed a prop called handleSearch. This means that "this.props.handleSearch" can be used as an event handler value in
@@ -96,7 +129,7 @@ class App extends React.Component {
       return (
         <div className="App-content">
           <SearchBar handleSearch={this.search} homeScreen={false} searchTerm={this.state.searchTerm} displayFavList={this.displayFavList}/>
-          <Recipe recipe={this.state.selectedRecipe} selectRecipe={this.selectRecipe} addToFavList={this.addToFavList}/>
+          <Recipe recipe={this.state.selectedRecipe} selectRecipe={this.selectRecipe} toggleHeart={this.toggleHeart}/>
         </div>
       );
     } else if (this.state.displayType !== null) {
@@ -108,9 +141,21 @@ class App extends React.Component {
       if (this.state.displayType === 'search') {
         display = this.state.searchResults;
         iconToDisplaySrc = heartHollow;
-        handleIconClick = this.addToFavList;
+        handleIconClick = this.toggleHeart;
         listTitle = 'Search Results';
-        listMessage = (this.state.searchResults.length !== 0) ? '' : 'Oops, no search results for the entered term.';
+
+        if(this.state.searchResults === null) {
+          listMessage = 'searching...';
+        } else if (this.state.searchResults.length !== 0) {
+          listMessage = '';
+        } else {
+          listMessage = 'Oops, no search results for the entered term.';
+        }
+
+        //line below to be removed once block above is working (it replaces it).
+        //listMessage = (this.state.searchResults.length !== 0) ? '' : 'Oops, no search results for the entered term.';
+
+
       } else {
         display = this.state.favList;
         iconToDisplaySrc = cross;

@@ -32,10 +32,10 @@
 }
 
 .veggiezz {
-  color: #ff8080;
-  font-size: 8rem;
+  color: #FADB10;/*#ff8080*/
+  font-weight: bold;
+  font-size: 10rem;
   text-shadow:0 0 10px black;
-  font-weight: normal;
   font-family: 'Monday Bay',Helvetica ;
 }
 

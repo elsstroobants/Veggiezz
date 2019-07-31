@@ -7,11 +7,10 @@
   background: white;
   color: black;
   font-family: Helvetica;
-  padding: 2rem;
-  margin: 5rem 0 3rem 0;
+  padding: 1rem 1rem 2rem 1rem;
   line-height: 2rem;
-  width: 70%;
-  max-width: 20rem;
+  width: 90%;
+  max-width: 25rem;
 }
 
 .listMessage {
@@ -19,4 +18,16 @@
   font-size: .8rem;
   line-height: 1rem;
   padding: 0 0 1rem 0rem;
+}
+
+#recipeListContainer {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
