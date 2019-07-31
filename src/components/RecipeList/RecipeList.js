@@ -9,7 +9,7 @@ class RecipeList extends React.Component {
     // I still find this a bit mind-boggling, as I don't see why this has to be done differently to the other list set-up used to create the IngredienstsList by the Recipe component... Basically, it looks weird to render a RecipySummary inside of a const. Is there a way to write this differently?
     let recipeItems;
     if (this.props.recipes !== null) {
-      recipeItems = this.props.recipes.map((recipeItem, i) => <RecipeSummary key={'recipe_' + i} recipe={recipeItem} selectRecipe={this.props.selectRecipe} recipeSummaryIconSrc={this.props.recipeSummaryIconSrc} handleIconClick={this.props.handleIconClick}/>);
+      recipeItems = this.props.recipes.map((recipeItem, i) => <RecipeSummary key={'recipe_' + i} recipe={recipeItem} selectRecipe={this.props.selectRecipe} getIconSrc={this.props.getIconSrc} handleIconClick={this.props.handleIconClick}/>);
     }
 
     return (

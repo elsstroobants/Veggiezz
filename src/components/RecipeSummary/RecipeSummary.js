@@ -18,12 +18,15 @@ class RecipeSummary extends React.Component {
   }
 
   render() {
+
+    const iconSrc = this.props.getIconSrc(this.props.recipe);
+
     return (
       <div className="recipeSummary">
         <li className="recipeSummaryListItem" onClick={this.handleRecipeSummaryClick}>
           {this.props.recipe.name}
         </li>
-        <img src={this.props.recipeSummaryIconSrc} alt='' className="recipeSummaryIcon" onClick={this.handleRecipeSummaryIconClick} />
+        <img src={iconSrc} alt='' className="recipeSummaryIcon" onClick={this.handleRecipeSummaryIconClick} />
       </div>
     );
   }

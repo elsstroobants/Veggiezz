@@ -3,8 +3,8 @@ import './App.css';
 import Recipe from './components/Recipe/Recipe.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
 import RecipeList from './components/RecipeList/RecipeList.js';
-import lasagna from './images/lasagna.jpg';
 import heartHollow from './images/heart_hollow_pink.svg';
+import heartSolid from './images/heart_solid_pink.svg';
 import cross from './images/cross_pink.svg';
 
 // https://api.edamam.com/search?q=onion&app_id=65b44741&app_key=dd81ed343eac181f1a75a52d6aa2cdfc
@@ -28,6 +28,8 @@ class App extends React.Component {
     this.removeFromFavList = this.removeFromFavList.bind(this);
     this.isFavourite = this.isFavourite.bind(this);
     this.toggleHeart = this.toggleHeart.bind(this);
+    this.getIconSearchResultsList = this.getIconSearchResultsList.bind(this);
+    this.getIconFavList = this.getIconFavList.bind(this);
   }
 
   // This function gets called when the user clicks the "Search" button.
@@ -118,6 +120,18 @@ class App extends React.Component {
     }
   }
 
+  getIconSearchResultsList(recipe) {
+    if (recipe.favourite) {
+      return heartSolid;
+    } else {
+      return heartHollow;
+    }
+  }
+
+  getIconFavList(recipe) {
+    return cross;
+  }
+
   // If there is no recipe selected, the state of selectedRecipe is null. In this case the RecipeList will be rendered, not the recipe.
   // Searchbar is passed a prop called handleSearch. This means that "this.props.handleSearch" can be used as an event handler value in
   //the SearchBar component. Have a look in the SearchBar component to see where it is used. You would expect to find this in the SearchBars <input> element as an onClick attribute (onClick={this.handleSearch}) but, that wouldn't work because you need to capture the value of the text that was entered in the search field somehow. See comments in SearchBar to see how to do that.
@@ -140,7 +154,7 @@ class App extends React.Component {
       let listMessage;
       if (this.state.displayType === 'search') {
         display = this.state.searchResults;
-        iconToDisplaySrc = heartHollow;
+        iconToDisplaySrc = this.getIconSearchResultsList;
         handleIconClick = this.toggleHeart;
         listTitle = 'Search Results';
 
@@ -158,7 +172,7 @@ class App extends React.Component {
 
       } else {
         display = this.state.favList;
-        iconToDisplaySrc = cross;
+        iconToDisplaySrc= this.getIconFavList;
         handleIconClick = this.removeFromFavList;
         listTitle = 'Favourites List';
         listMessage = (this.state.favList.length !== 0) ? '' : 'No favourites have been added yet.';
@@ -168,7 +182,7 @@ class App extends React.Component {
       return (
         <div className="App-content">
           <SearchBar handleSearch={this.search} homeScreen={false} searchTerm={this.state.searchTerm} displayFavList={this.displayFavList}/>
-          <RecipeList recipes={display} selectRecipe={this.selectRecipe} listTitle={listTitle} recipeSummaryIconSrc={iconToDisplaySrc} handleIconClick={handleIconClick} message={listMessage}/>
+          <RecipeList recipes={display} selectRecipe={this.selectRecipe} listTitle={listTitle} getIconSrc={iconToDisplaySrc} handleIconClick={handleIconClick} message={listMessage}/>
         </div>
       );
 
