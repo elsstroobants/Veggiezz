@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6ded13457c66ecbf77aec7d930d0ee78",
+    "revision": "bd0dbd9a3ff18d6239a6c0bbf28a08cf",
     "url": "/veggiezz/build/index.html"
   },
   {
-    "revision": "c2b2cbdf4087fb4c2ee2",
-    "url": "/veggiezz/build/static/css/main.72b42ffe.chunk.css"
+    "revision": "2e598ec73052d77a51d2",
+    "url": "/veggiezz/build/static/css/main.eb35999f.chunk.css"
   },
   {
-    "revision": "6ab5d61a2997cf2ed804",
-    "url": "/veggiezz/build/static/js/2.c696e79f.chunk.js"
+    "revision": "9dcace598e2a9548e94e",
+    "url": "/veggiezz/build/static/js/2.9749faaf.chunk.js"
   },
   {
-    "revision": "c2b2cbdf4087fb4c2ee2",
-    "url": "/veggiezz/build/static/js/main.77b74f14.chunk.js"
+    "revision": "2e598ec73052d77a51d2",
+    "url": "/veggiezz/build/static/js/main.ff8b9483.chunk.js"
   },
   {
     "revision": "e0402a11bc6c6dc85114",
@@ -36,12 +36,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/veggiezz/build/static/media/heart_hollow_pink.16e5df6f.svg"
   },
   {
-    "revision": "0e04a97c32f2bf601435148a68843f48",
-    "url": "/veggiezz/build/static/media/heart_solid_white.0e04a97c.svg"
+    "revision": "628617602f4355dc963bb402376beb7d",
+    "url": "/veggiezz/build/static/media/heart_solid_pink.62861760.svg"
   },
   {
-    "revision": "4d89579e534e4ffc0d0c06ff9418de68",
-    "url": "/veggiezz/build/static/media/lasagna.4d89579e.jpg"
+    "revision": "0e04a97c32f2bf601435148a68843f48",
+    "url": "/veggiezz/build/static/media/heart_solid_white.0e04a97c.svg"
   },
   {
     "revision": "c07793ab6578bcc8a5c985d281ab1d59",
